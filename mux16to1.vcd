@@ -1,0 +1,219 @@
+$date
+	Sun Sep  7 23:09:06 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module mux16to1_tb $end
+$var wire 1 ! f $end
+$var reg 16 " d [15:0] $end
+$var reg 4 # s [3:0] $end
+$scope module e $end
+$var wire 16 $ d [15:0] $end
+$var wire 4 % s [3:0] $end
+$var wire 2 & x [1:0] $end
+$var wire 1 ! f $end
+$scope module e $end
+$var wire 1 ' a $end
+$var wire 1 ( b $end
+$var wire 1 ) s $end
+$var reg 1 ! f $end
+$upscope $end
+$scope module e1 $end
+$var wire 8 * d [7:0] $end
+$var wire 3 + s [2:0] $end
+$var reg 1 , f $end
+$upscope $end
+$scope module e2 $end
+$var wire 8 - d [7:0] $end
+$var wire 3 . s [2:0] $end
+$var reg 1 / f $end
+$upscope $end
+$upscope $end
+$scope begin $ivl_for_loop0 $end
+$var integer 32 0 i [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx 0
+0/
+b10 .
+b10101000 -
+0,
+b10 +
+b1010001 *
+1)
+0(
+0'
+b0 &
+b1010 %
+b1010100001010001 $
+b1010 #
+b1010100001010001 "
+0!
+$end
+#10
+1'
+b1 &
+1,
+b0 +
+b0 .
+b1110001 *
+b10111100 -
+b1000 #
+b1000 %
+b1011110001110001 "
+b1011110001110001 $
+#20
+1!
+0)
+b0 #
+b0 %
+b0 0
+#30
+0!
+0'
+b0 &
+0,
+b1 +
+b1 .
+b1 #
+b1 %
+b1 0
+#40
+1(
+b10 &
+1/
+b10 +
+b10 .
+b10 #
+b10 %
+b10 0
+#50
+b11 +
+b11 .
+b11 #
+b11 %
+b11 0
+#60
+1!
+1'
+b11 &
+1,
+b100 +
+b100 .
+b100 #
+b100 %
+b100 0
+#70
+b101 +
+b101 .
+b101 #
+b101 %
+b101 0
+#80
+0(
+b1 &
+0/
+b110 +
+b110 .
+b110 #
+b110 %
+b110 0
+#90
+0!
+0'
+1(
+0,
+b10 &
+1/
+b111 +
+b111 .
+b111 #
+b111 %
+b111 0
+#100
+1'
+0(
+1,
+b1 &
+0/
+0!
+b0 +
+b0 .
+1)
+b1000 #
+b1000 %
+b1000 0
+#110
+0'
+b0 &
+0,
+b1 +
+b1 .
+b1001 #
+b1001 %
+b1001 0
+#120
+1!
+1(
+b10 &
+1/
+b10 +
+b10 .
+b1010 #
+b1010 %
+b1010 0
+#130
+b11 +
+b11 .
+b1011 #
+b1011 %
+b1011 0
+#140
+1'
+b11 &
+1,
+b100 +
+b100 .
+b1100 #
+b1100 %
+b1100 0
+#150
+b101 +
+b101 .
+b1101 #
+b1101 %
+b1101 0
+#160
+0!
+0(
+b1 &
+0/
+b110 +
+b110 .
+b1110 #
+b1110 %
+b1110 0
+#170
+1!
+0'
+1(
+0,
+b10 &
+1/
+b111 +
+b111 .
+b1111 #
+b1111 %
+b1111 0
+#180
+b10000 0

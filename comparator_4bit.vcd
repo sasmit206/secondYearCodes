@@ -1,0 +1,63 @@
+$date
+	Sun Sep  7 19:08:19 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module comparator_4bit_tb $end
+$var wire 1 ! altb $end
+$var wire 1 " agtb $end
+$var wire 1 # aeqb $end
+$var reg 4 $ a [3:0] $end
+$var reg 4 % b [3:0] $end
+$scope module e $end
+$var wire 4 & a [3:0] $end
+$var wire 1 # aeqb $end
+$var wire 1 " agtb $end
+$var wire 1 ! altb $end
+$var wire 4 ' b [3:0] $end
+$var wire 1 ( e1 $end
+$var wire 1 ) e2 $end
+$var wire 1 * e3 $end
+$var wire 1 + e4 $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+1+
+1*
+0)
+1(
+b111 '
+b101 &
+b111 %
+b101 $
+0#
+0"
+1!
+$end
+#10
+0!
+1#
+0"
+1)
+b1001 %
+b1001 '
+b1001 $
+b1001 &
+#20
+0#
+1"
+0(
+b10 %
+b10 '
+b11 $
+b11 &
+#30
