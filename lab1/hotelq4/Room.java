@@ -44,8 +44,8 @@ class StandardRoom extends Room implements Amenities{
     }
     @Override
     double calculateTariff(){
-        System.out.println("Standard Room Cost:"+bt+ac*3000+am*3400);
-        return bt+ac*3000+am*3400;
+        System.out.println("Standard Room Cost:"+(bt+ac*3000+am*3400));
+        return (bt+ac*3000+am*3400);
     }
 }
 
@@ -65,7 +65,7 @@ class LuxuryRoom extends Room implements Amenities{
         System.out.println("Breakfast Provided for Luxury Room ;)");
     }
     double calculateTariff(){
-        System.out.println("Luxury Room Cost:"+bt+ac*3000+am*3400+p*6900);
+        System.out.println("Luxury Room Cost:"+(bt+ac*3000+am*3400+p*6900));
         return bt+ac*3000+am*3400+p*6900;
     }
 }
