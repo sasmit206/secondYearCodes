@@ -1,0 +1,106 @@
+1)
+select c.course_id,c.title from course c join section s on c.course_id=s.course_id where s.semester = 'Fall' and s.year=2009
+union all
+select c.course_id,c.title from course c join section s on c.course_id=s.course_id where s.semester = 'Spring' and s.year=2010;
+
+2)
+select c.course_id,c.title from course c join section s on c.course_id=s.course_id where s.semester = 'Fall' and s.year=2009
+intersect all
+select c.course_id,c.title from course c join section s on c.course_id=s.course_id where s.semester = 'Spring' and s.year=2010;
+
+3)
+select c.course_id,c.title from course c join section s on c.course_id=s.course_id where s.semester = 'Fall' and s.year=2009
+minus
+select c.course_id,c.title from course c join section s on c.course_id=s.course_id where s.semester = 'Spring' and s.year=2010;
+
+4)
+select course_id
+from course
+where course_id not in (select course_id from takes);
+
+5)
+(select c.title
+from course c
+join section s
+on c.course_id = s.course_id
+where s.semester='Fall' And s.year=2009)
+intersect
+(select c.title
+from course c
+join section s
+on c.course_id = s.course_id)
+
+6)
+select count(distinct(t.id))
+from takes t
+join
+teaches h
+on (t.course_id = h.course_id
+    AND t.sec_id = h.sec_id
+    AND t.semester = h.semester
+    AND t.year = h.year)
+and h.id='10101';
+
+7)
+(select c.title
+from course c
+join section s
+on c.course_id = s.course_id
+where s.semester='Fall' And s.year=2009)
+minus
+(select c.title
+from course c
+join section s
+on c.course_id = s.course_id
+where s.semester='Spring' And s.year=2010);
+
+
+
+9)
+Select name,salary from instructor 
+where salary >
+any(select salary from instructor where dept_name='Biology');
+
+10)
+Select name,salary from instructor 
+where salary >
+all(select salary from instructor where dept_name='Biology');
+
+11)
+select dept_name,avg(salary)
+from instructor 
+group by dept_name
+order by avg(salary) desc;
+
+12)
+SELECT dept_name, budget
+FROM department
+WHERE budget < (
+    SELECT AVG(salary) 
+    FROM instructor
+);
+
+
+13)
+select c.title,c.course_id
+from course c
+join section s
+on s.course_id=c.course_id
+where s.semester='Fall' and s.year=2009
+intersect
+select c.title,c.course_id
+from course c
+join section s
+on s.course_id=c.course_id
+where s.semester='Spring' and s.year=2010;
+
+14)
+select s.id,s.name
+from student s
+where s.id in all(
+select id from student where dept_name='Biology');
+
+15)
+select course_id from section where year=2009 group by course_id having count(course_id)=1;
+
+16)
