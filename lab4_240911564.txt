@@ -1,0 +1,115 @@
+ 1)
+ SELECT c.title, COUNT(t.id) AS num_students
+  FROM course c
+  JOIN takes t ON c.course_id = t.course_id
+  GROUP BY c.title
+  ORDER BY c.title;
+ 
+ 2)
+ select dept_name from student group by dept_name having count(distinct(name))>10;
+ 
+ 3)
+ SQL> select count(course_id) as noc,dept_name from course group by dept_name;
+ 
+ 4)
+select dept_name,avg(salary)
+from instructor 
+group by dept_name
+having avg(salary)>42000;
+
+5)
+select unique(sec_id)
+from section
+where semester='Spring'
+and year=2009;
+
+6)
+select course_id
+from prereq
+order by course_id asc;
+
+7)
+select id,name,salary
+from instructor
+order by salary desc;
+
+8)
+select max(salary),dept_name
+from instructor
+group by dept_name;
+
+9)
+select avg(salary), dept_name
+from instructor 
+group by dept_name
+having avg(salary)>42000;
+
+10)
+ select count(distinct(id)),sec_id
+ from takes
+ where semester='Spring' and year=2010
+ group by sec_id
+ order by count(distinct(id)) desc
+ fetch first 1 row with ties;
+
+11)
+SELECT i.name
+FROM instructor i
+WHERE NOT EXISTS (
+    SELECT s.id 
+    FROM student s
+    WHERE s.dept_name = 'Comp. Sci.'
+    AND NOT EXISTS (
+        SELECT 1
+        FROM teaches t
+        JOIN takes tk ON t.course_id = tk.course_id 
+                      AND t.sec_id = tk.sec_id 
+                      AND t.semester = tk.semester 
+                      AND t.year = tk.year
+        WHERE t.id = i.id AND tk.id = s.id
+    )
+);
+
+12)
+select dept_name,avg(salary)
+from instructor
+group by dept_name
+having avg(salary)>50000
+and count(distinct(id))>5;
+
+13)
+select dept_name from department 
+where budget in
+(select max(budget) from department);
+
+14)
+select avg(salary),dept_name
+from instructor
+group by dept_name
+having avg(salary)>
+(select avg(salary) from instructor);
+
+15) 
+savepoint cse_lol;
+
+insert into department values('IT','AB5',234567);
+update student
+set dept_name='IT'
+where dept_name='Comp. Sci.'
+
+select * from student where dept_name='IT'
+
+rollback to cse_lol;
+
+
+16)
+savepoint before_increment;
+
+select salary from instructor;
+update instructor
+set salary=Case
+	when salary>100000 then 1.03*salary
+	else salary*1.05
+END;
+	
+rollback to before_increment;
