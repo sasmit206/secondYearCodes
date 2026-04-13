@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/sasmit/Desktop/sem4/os_lab/lab9_fit/output/page_no_offset'
+relocations:     []
+...
