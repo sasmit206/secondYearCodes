@@ -1,0 +1,173 @@
+$date
+	Mon Sep  8 00:24:18 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module four_bit_add_sub_tb $end
+$var wire 4 ! s [3:0] $end
+$var wire 1 " cout $end
+$var reg 4 # a [3:0] $end
+$var reg 4 $ b [3:0] $end
+$var reg 1 % cin $end
+$scope module dut $end
+$var wire 4 & a [3:0] $end
+$var wire 4 ' b [3:0] $end
+$var wire 4 ( bmod [3:0] $end
+$var wire 1 % cin $end
+$var wire 4 ) s [3:0] $end
+$var wire 1 " cout $end
+$scope module stage0 $end
+$var wire 4 * a [3:0] $end
+$var wire 4 + b [3:0] $end
+$var wire 1 % cin $end
+$var wire 3 , x [3:1] $end
+$var wire 4 - s [3:0] $end
+$var wire 1 " cout $end
+$scope module stage0 $end
+$var wire 1 . a $end
+$var wire 1 / b $end
+$var wire 1 0 cin $end
+$var wire 1 1 cout $end
+$var wire 1 2 s $end
+$upscope $end
+$scope module stage1 $end
+$var wire 1 3 a $end
+$var wire 1 4 b $end
+$var wire 1 5 cin $end
+$var wire 1 6 cout $end
+$var wire 1 7 s $end
+$upscope $end
+$scope module stage2 $end
+$var wire 1 8 a $end
+$var wire 1 9 b $end
+$var wire 1 : cin $end
+$var wire 1 ; cout $end
+$var wire 1 < s $end
+$upscope $end
+$scope module stage3 $end
+$var wire 1 = a $end
+$var wire 1 > b $end
+$var wire 1 ? cin $end
+$var wire 1 " cout $end
+$var wire 1 @ s $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+1@
+1?
+0>
+0=
+0<
+1;
+1:
+09
+18
+07
+16
+15
+14
+03
+02
+11
+00
+1/
+1.
+b1000 -
+b111 ,
+b11 +
+b101 *
+b1000 )
+b11 (
+b11 '
+b101 &
+0%
+b11 $
+b101 #
+0"
+b1000 !
+$end
+#10
+0:
+06
+17
+05
+01
+12
+0?
+1<
+b0 ,
+0;
+b1111 !
+b1111 )
+b1111 -
+1@
+0"
+0/
+19
+b110 (
+b110 +
+08
+1=
+b110 $
+b110 '
+b1001 #
+b1001 &
+b1001 *
+#20
+1:
+16
+07
+15
+b11 ,
+11
+1"
+02
+1<
+b100 !
+b100 )
+b100 -
+0@
+1/
+09
+1>
+b1011 (
+b1011 +
+b100 $
+b100 '
+1%
+#30
+1?
+0"
+07
+1<
+b111 ,
+1;
+b1100 !
+b1100 )
+b1100 -
+1@
+04
+19
+0>
+b101 (
+b101 +
+13
+18
+0=
+b1010 $
+b1010 '
+b111 #
+b111 &
+b111 *
+#40
