@@ -1,0 +1,10 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/sasmit/Desktop/2ndyear/ds_lab/lab3/output/q2'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _read, symObjAddr: 0x0, symBinAddr: 0x100003AE8, symSize: 0xE4 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _read, symObjAddr: 0x0, symBinAddr: 0x100003AE8, symSize: 0xE4 }
+  - { offsetInCU: 0x8F, offset: 0x8F, size: 0x8, addend: 0x0, symName: _display, symObjAddr: 0xE4, symBinAddr: 0x100003BCC, symSize: 0xB4 }
+  - { offsetInCU: 0xDD, offset: 0xDD, size: 0x8, addend: 0x0, symName: _sort_info, symObjAddr: 0x198, symBinAddr: 0x100003C80, symSize: 0x184 }
+  - { offsetInCU: 0x163, offset: 0x163, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x31C, symBinAddr: 0x100003E04, symSize: 0x108 }
+...

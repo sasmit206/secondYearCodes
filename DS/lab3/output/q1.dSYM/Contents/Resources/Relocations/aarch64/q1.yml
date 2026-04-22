@@ -1,0 +1,11 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/sasmit/sem3/ds_lab/lab3/output/q1'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _len_st, symObjAddr: 0x0, symBinAddr: 0x100003888, symSize: 0x50 }
+  - { offsetInCU: 0x46, offset: 0x46, size: 0x8, addend: 0x0, symName: _len_st, symObjAddr: 0x0, symBinAddr: 0x100003888, symSize: 0x50 }
+  - { offsetInCU: 0x7C, offset: 0x7C, size: 0x8, addend: 0x0, symName: _concatenate_str, symObjAddr: 0x50, symBinAddr: 0x1000038D8, symSize: 0x128 }
+  - { offsetInCU: 0x114, offset: 0x114, size: 0x8, addend: 0x0, symName: _str_cmp, symObjAddr: 0x178, symBinAddr: 0x100003A00, symSize: 0x100 }
+  - { offsetInCU: 0x14A, offset: 0x14A, size: 0x8, addend: 0x0, symName: _ins_sub_str, symObjAddr: 0x278, symBinAddr: 0x100003B00, symSize: 0x234 }
+  - { offsetInCU: 0x20E, offset: 0x20E, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x4AC, symBinAddr: 0x100003D34, symSize: 0x13C }
+...
