@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/sasmit/Desktop/sem4/os_lab/endsem/output/lab8_q1'
+relocations:     []
+...

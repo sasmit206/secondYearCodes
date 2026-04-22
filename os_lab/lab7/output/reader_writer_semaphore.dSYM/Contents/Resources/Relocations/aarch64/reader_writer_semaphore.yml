@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/sasmit/Desktop/sem4/os_lab/lab7/output/reader_writer_semaphore'
+relocations:     []
+...

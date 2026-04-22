@@ -1,0 +1,12 @@
+RegistrationNo:Name:Department:Branch:Section:Sub1:Sub2:Sub3
+1234:XYZ:ICT:Information Technology:A:80:60:70
+1235:ABC:ICT:CCE:B:75:65:85
+1236:PQR:CSE:Information Technology:A:60:70:80
+1237:LMN:ICT:Information Technology:C:90:85:88
+1238:DEF:ECE:ECE:A:55:60:65
+1239:GHI:ICT:CCE:B:78:82:80
+1240:JKL:CSE:Information Technology:A:68:72:74
+1241:MNO:ICT:Information Technology:B:88:76:90
+1242:STU:ECE:ECE:C:62:58:64
+1243:VWX:ICT:Information Technology:A:70:75:80
+
