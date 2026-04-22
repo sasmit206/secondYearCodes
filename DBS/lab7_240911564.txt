@@ -1,0 +1,260 @@
+Declare 
+	v_rno NUMBER := &rollno;
+	v_gpa StudentTable.gpa%TYPE;
+BEGIN
+	SELECT gpa into v_gpa from StudentTable where rollno=v_rno;
+	dbms_output.put_line('GPA : ' || v_gpa || 'ROLL NO : ' || v_rno);
+EXCEPTION
+	WHEN NO_DATA_FOUND THEN 
+		DBMS_OUTPUT.PUT_LINE('NO DATA FOUND FOR STUDENT W/ ROLL : ' || v_rno);
+END;
+/
+
+2)
+SET SERVEROUTPUT ON;
+
+DECLARE
+    v_rno StudentTable.rollno%TYPE := &rollno; 
+    v_gpa StudentTable.gpa%TYPE;
+BEGIN
+    SELECT gpa INTO v_gpa 
+    FROM StudentTable 
+    WHERE rollno = v_rno; 
+    
+    IF (v_gpa > 0 AND v_gpa <= 4) THEN
+        DBMS_OUTPUT.PUT_LINE('F');
+    ELSIF (v_gpa > 4 AND v_gpa <= 5) THEN
+        DBMS_OUTPUT.PUT_LINE('E');
+    ELSIF (v_gpa > 5 AND v_gpa <= 6) THEN
+        DBMS_OUTPUT.PUT_LINE('D');
+    ELSIF (v_gpa > 6 AND v_gpa <= 7) THEN
+        DBMS_OUTPUT.PUT_LINE('C');
+    ELSIF (v_gpa > 7 AND v_gpa <= 8) THEN
+        DBMS_OUTPUT.PUT_LINE('B');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('A');
+    END IF;
+    
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN 
+        DBMS_OUTPUT.PUT_LINE('NO DATA FOUND FOR STUDENT W/ ROLL : ' || v_rno);
+END;
+/
+
+
+3)
+SET SERVEROUTPUT ON;
+
+DECLARE
+    v_doi DATE;
+    v_dor DATE;
+    v_daysbwn NUMBER;
+    v_fine NUMBER;  -- Added: store fine amount
+BEGIN
+    v_doi := TO_DATE('&issue_date', 'DD-MON-YYYY');
+    v_dor := TO_DATE('&return_date', 'DD-MON-YYYY');
+    
+    v_daysbwn := v_dor - v_doi;
+    
+    IF(v_daysbwn <= 7) THEN
+        DBMS_OUTPUT.PUT_LINE('NO FINE');
+    ELSIF(v_daysbwn <= 15) THEN
+        v_fine := 1*(v_daysbwn-7);
+        DBMS_OUTPUT.PUT_LINE('FINE: ' || v_fine);
+    ELSIF(v_daysbwn <= 30) THEN
+        v_fine := 7+2*(v_daysbwn-15);
+        DBMS_OUTPUT.PUT_LINE('FINE: ' || v_fine);
+    ELSE
+        v_fine := 37+(v_daysbwn-30)*5;
+        DBMS_OUTPUT.PUT_LINE('FINE: ' || v_fine);
+    END IF;
+END;
+/
+
+
+4)
+SET SERVEROUTPUT ON;
+
+DECLARE
+    v_rno StudentTable.rollno%TYPE; 
+    v_gpa StudentTable.gpa%TYPE;
+BEGIN
+	FOR rec IN (SELECT RollNo, gpa FROM StudentTable) LOOP
+        DBMS_OUTPUT.PUT_LINE('RollNo: ' || rec.RollNo || ' GPA: ' || rec.gpa);
+        
+        IF (rec.gpa > 0 AND rec.gpa <= 4) THEN
+            DBMS_OUTPUT.PUT_LINE('  Grade: F');
+        ELSIF (rec.gpa > 4 AND rec.gpa <= 5) THEN
+            DBMS_OUTPUT.PUT_LINE('  Grade: E');
+        ELSIF (rec.gpa > 5 AND rec.gpa <= 6) THEN
+            DBMS_OUTPUT.PUT_LINE('  Grade: D');
+        ELSIF (rec.gpa > 6 AND rec.gpa <= 7) THEN
+            DBMS_OUTPUT.PUT_LINE('  Grade: C');
+        ELSIF (rec.gpa > 7 AND rec.gpa <= 8) THEN
+            DBMS_OUTPUT.PUT_LINE('  Grade: B');
+        ELSE
+            DBMS_OUTPUT.PUT_LINE('  Grade: A');
+        END IF;
+    END LOOP;
+    
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN 
+        DBMS_OUTPUT.PUT_LINE('NO DATA FOUND FOR STUDENT W/ ROLL : ' || v_rno);
+END;
+/
+
+5)
+SET SERVEROUTPUT ON;
+
+DECLARE
+    v_rno StudentTable.rollno%TYPE; 
+    v_gpa StudentTable.gpa%TYPE;
+	v_LetterGrade StudentTable.LetterGrade%TYPE;
+BEGIN
+	FOR rec IN (SELECT RollNo, gpa FROM StudentTable) LOOP
+        DBMS_OUTPUT.PUT_LINE('RollNo: ' || rec.RollNo || ' GPA: ' || rec.gpa);
+        
+        IF (rec.gpa > 0 AND rec.gpa <= 4) THEN
+            v_LetterGrade:='F';
+        ELSIF (rec.gpa > 4 AND rec.gpa <= 5) THEN
+            v_LetterGrade:='E';
+        ELSIF (rec.gpa > 5 AND rec.gpa <= 6) THEN
+            v_LetterGrade:='D';
+        ELSIF (rec.gpa > 6 AND rec.gpa <= 7) THEN
+            v_LetterGrade:='C';
+        ELSIF (rec.gpa > 7 AND rec.gpa <= 8) THEN
+            v_LetterGrade:='B';
+        ELSE
+            v_LetterGrade:='A';
+        END IF;
+	DBMS_OUTPUT.PUT_LINE('  Grade: ' || v_LetterGrade); 
+	END LOOP;
+    
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN 
+        DBMS_OUTPUT.PUT_LINE('NO DATA FOUND FOR STUDENT W/ ROLL : ' || v_rno);
+END;
+/
+
+6)
+
+Declare
+	v_rollno_max  StudentTable.rollno%TYPE;
+	v_gpa_max  StudentTable.GPA%TYPE;
+	v_LetterGrade_max StudentTable.LetterGrade%TYPE;
+BEGIN	
+	SELECT gpa,rollno,LetterGrade into v_gpa_max,v_rollno_max,v_LetterGrade_max  from StudentTable
+	where ROWNUM=1;
+	FOR rec IN (SELECT RollNo, gpa,LetterGrade FROM StudentTable) LOOP
+		if(rec.gpa>v_gpa_max) THEN	
+			v_gpa_max:=rec.gpa;
+			v_LetterGrade_max:=rec.LetterGrade;
+			v_rollno_max:=rec.rollno;
+		END IF;
+	END LOOP;
+    DBMS_OUTPUT.PUT_LINE('Student with MAX GPA:');
+    DBMS_OUTPUT.PUT_LINE('RollNo: ' || v_rollno_max || ' GPA: ' || v_gpa_max);
+END;
+/
+		
+		
+7)
+SET SERVEROUTPUT ON;
+
+DECLARE
+    v_rno StudentTable.rollno%TYPE; 
+    v_gpa StudentTable.gpa%TYPE;
+    v_grade_label VARCHAR2(10);
+BEGIN
+    FOR rec IN (SELECT RollNo, gpa FROM StudentTable) LOOP
+        DBMS_OUTPUT.PUT_LINE('RollNo: ' || rec.RollNo || ' GPA: ' || rec.gpa);
+        
+        v_gpa := rec.gpa;
+        
+        IF (v_gpa > 0 AND v_gpa <= 4) THEN
+            GOTO grade_f;
+        END IF;
+        IF (v_gpa > 4 AND v_gpa <= 5) THEN
+            GOTO grade_e;
+        END IF;
+        IF (v_gpa > 5 AND v_gpa <= 6) THEN
+            GOTO grade_d;
+        END IF;
+        IF (v_gpa > 6 AND v_gpa <= 7) THEN
+            GOTO grade_c;
+        END IF;
+        IF (v_gpa > 7 AND v_gpa <= 8) THEN
+            GOTO grade_b;
+        END IF;
+        GOTO grade_a;
+        
+        <<grade_f>>
+        DBMS_OUTPUT.PUT_LINE('  Grade: F');
+        GOTO next_student;
+        
+        <<grade_e>>
+        DBMS_OUTPUT.PUT_LINE('  Grade: E');
+        GOTO next_student;
+        
+        <<grade_d>>
+        DBMS_OUTPUT.PUT_LINE('  Grade: D');
+        GOTO next_student;
+        
+        <<grade_c>>
+        DBMS_OUTPUT.PUT_LINE('  Grade: C');
+        GOTO next_student;
+        
+        <<grade_b>>
+        DBMS_OUTPUT.PUT_LINE('  Grade: B');
+        GOTO next_student;
+        
+        <<grade_a>>
+        DBMS_OUTPUT.PUT_LINE('  Grade: A');
+        GOTO next_student;
+        
+        <<next_student>>
+        NULL;
+    END LOOP;
+END;
+/
+
+8)
+SET SERVEROUTPUT ON;
+
+DECLARE
+    v_instructor_id Instructor.ID%TYPE;
+    v_name Instructor.name%TYPE;
+    v_dept_name Instructor.dept_name%TYPE;
+    v_salary Instructor.salary%TYPE;
+    v_count NUMBER;
+BEGIN
+    -- Count matching instructors first
+    SELECT COUNT(*) INTO v_count
+    FROM Instructor 
+    WHERE name = UPPER('&instructor_name');
+    
+    IF v_count = 0 THEN
+        DBMS_OUTPUT.PUT_LINE('No instructor found with name: ' || UPPER('&instructor_name'));
+    ELSIF v_count > 1 THEN
+        DBMS_OUTPUT.PUT_LINE('Multiple (' || v_count || ') instructors found with name: ' || UPPER('&instructor_name'));
+    ELSE
+        -- Single instructor found - display details
+        SELECT ID, name, dept_name, salary 
+        INTO v_instructor_id, v_name, v_dept_name, v_salary
+        FROM Instructor 
+        WHERE name = UPPER('&instructor_name');
+        
+        DBMS_OUTPUT.PUT_LINE('Instructor Details:');
+        DBMS_OUTPUT.PUT_LINE('ID: ' || v_instructor_id);
+        DBMS_OUTPUT.PUT_LINE('Name: ' || v_name);
+        DBMS_OUTPUT.PUT_LINE('Department: ' || v_dept_name);
+        DBMS_OUTPUT.PUT_LINE('Salary: ' || v_salary);
+    END IF;
+    
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('No instructor found with name: ' || UPPER('&instructor_name'));
+    WHEN TOO_MANY_ROWS THEN
+        DBMS_OUTPUT.PUT_LINE('Multiple instructors found with name: ' || UPPER('&instructor_name'));
+END;
+/
