@@ -1,0 +1,42 @@
+Library Management System using JavaFX
+
+Design and implement a Library Management System with a Graphical User Interface (GUI) using JavaFX to automate basic library operations. The application should provide an intuitive interface for managing books, members, and borrowing activities.
+
+📚 Book Management
+Display book details such as:
+Book ID
+Title
+Author
+Genre
+Availability Status
+Provide GUI options to:
+Add new books
+View all books
+Show available books only
+👤 Member Management
+Capture member information using forms:
+Member Name
+Contact Number
+Membership ID
+Display registered members in the GUI.
+🔄 Borrowing and Return System
+Allow borrowing of books via button click:
+Select Member
+Select Book
+Prevent borrowing of already issued books
+Provide a return option to mark books as available again
+🖥️ GUI Requirements
+Use JavaFX controls such as:
+Label, TextField, Button, ComboBox, TableView
+Use layouts:
+GridPane → for input forms
+VBox / HBox → for buttons and navigation
+Implement proper event handling for:
+Add
+Borrow
+Return
+View
+⚡ User Interaction
+Show confirmation/error messages using:
+Alert or Label
+Clear input fields after successful operations
